@@ -16,7 +16,7 @@ import MacroExamples
 
 @OptionSet<UInt8>
 struct ShippingOptions {
-  private enum Options {
+  private enum OptionKeys {
     case nextDay
     case secondDay
     case priority

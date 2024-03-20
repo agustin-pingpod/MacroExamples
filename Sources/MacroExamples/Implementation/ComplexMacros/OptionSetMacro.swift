@@ -54,9 +54,9 @@ extension OptionSetMacroDiagnostic: DiagnosticMessage {
 /// the nested options enum.
 private let optionsEnumNameArgumentLabel = "optionsName"
 
-/// The default name used for the nested "Options" enum. This should
+/// The default name used for the nested "OptionKeys" enum. This should
 /// eventually be overridable.
-private let defaultOptionsEnumName = "Options"
+private let defaultOptionsEnumName = "OptionKeys"
 
 extension LabeledExprListSyntax {
   /// Retrieve the first element with the given label.

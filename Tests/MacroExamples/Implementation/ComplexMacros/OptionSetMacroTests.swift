@@ -23,7 +23,7 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet<UInt8>
       struct ShippingOptions {
-        private enum Options {
+        private enum OptionKeys {
           case nextDay
           case secondDay
           case priority
@@ -36,7 +36,7 @@ final class OptionSetMacroTests: XCTestCase {
       """,
       expandedSource: """
         struct ShippingOptions {
-          private enum Options {
+          private enum OptionKeys {
             case nextDay
             case secondDay
             case priority
@@ -80,7 +80,7 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet<UInt8>
       public struct ShippingOptions: OptionSet {
-        private enum Options {
+        private enum OptionKeys {
           case nextDay
           case standard
         }
@@ -88,7 +88,7 @@ final class OptionSetMacroTests: XCTestCase {
       """,
       expandedSource: """
         public struct ShippingOptions: OptionSet {
-          private enum Options {
+          private enum OptionKeys {
             case nextDay
             case standard
           }
@@ -157,7 +157,7 @@ final class OptionSetMacroTests: XCTestCase {
         """,
       diagnostics: [
         DiagnosticSpec(
-          message: "'OptionSet' macro requires nested options enum 'Options'",
+          message: "'OptionSet' macro requires nested options enum 'OptionKeys'",
           line: 1,
           column: 1
         )
@@ -172,14 +172,14 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet
       struct ShippingOptions {
-        private enum Options {
+        private enum OptionKeys {
           case nextDay
         }
       }
       """,
       expandedSource: """
         struct ShippingOptions {
-          private enum Options: Int {
+          private enum OptionKeys {
             case nextDay
           }
         }

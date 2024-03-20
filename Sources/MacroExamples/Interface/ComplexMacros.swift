@@ -12,21 +12,21 @@
 
 // MARK: - Option Set
 
-/// Create an option set from a struct that contains a nested `Options` enum.
+/// Create an option set from a struct that contains a nested `OptionKeys` enum.
 ///
 /// Attach this macro to a struct that contains a nested `Options` enum.
 /// The struct will be transformed to conform to `OptionSet` by:
 ///   1. Introducing a `rawValue` stored property to track which options are set,
 ///    along with the necessary `RawType` typealias and initializers to satisfy
 ///    the `OptionSet` protocol.
-///   2. Introducing static properties for each of the cases within the `Options`
+///   2. Introducing static properties for each of the cases within the `OptionKeys`
 ///    enum, of the type of the struct.
 ///
 /// For example, the struct and its nested `Options` enum could look like this:
 ///
 ///     @OptionSet<UInt8>
 ///     struct ShippingOptions {
-///       private enum Options {
+///       private enum OptionKeys {
 ///         case nextDay
 ///         case secondDay
 ///         case priority
