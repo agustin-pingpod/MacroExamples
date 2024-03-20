@@ -23,7 +23,7 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet<UInt8>
       struct ShippingOptions {
-        private enum Options: Int {
+        private enum Options {
           case nextDay
           case secondDay
           case priority
@@ -36,7 +36,7 @@ final class OptionSetMacroTests: XCTestCase {
       """,
       expandedSource: """
         struct ShippingOptions {
-          private enum Options: Int {
+          private enum Options {
             case nextDay
             case secondDay
             case priority
@@ -58,17 +58,13 @@ final class OptionSetMacroTests: XCTestCase {
             self.rawValue = rawValue
           }
 
-          static let nextDay: Self =
-            Self(rawValue: 1 << Options.nextDay.rawValue)
+          static let nextDay: Self = Self(rawValue: 1 << 0)
 
-          static let secondDay: Self =
-            Self(rawValue: 1 << Options.secondDay.rawValue)
+          static let secondDay: Self = Self(rawValue: 1 << 1)
 
-          static let priority: Self =
-            Self(rawValue: 1 << Options.priority.rawValue)
+          static let priority: Self = Self(rawValue: 1 << 2)
 
-          static let standard: Self =
-            Self(rawValue: 1 << Options.standard.rawValue)
+          static let standard: Self = Self(rawValue: 1 << 3)
         }
 
         extension ShippingOptions: OptionSet {
@@ -84,7 +80,7 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet<UInt8>
       public struct ShippingOptions: OptionSet {
-        private enum Options: Int {
+        private enum Options {
           case nextDay
           case standard
         }
@@ -92,7 +88,7 @@ final class OptionSetMacroTests: XCTestCase {
       """,
       expandedSource: """
         public struct ShippingOptions: OptionSet {
-          private enum Options: Int {
+          private enum Options {
             case nextDay
             case standard
           }
@@ -109,11 +105,9 @@ final class OptionSetMacroTests: XCTestCase {
             self.rawValue = rawValue
           }
 
-          public  static let nextDay: Self =
-            Self(rawValue: 1 << Options.nextDay.rawValue)
+          public  static let nextDay: Self = Self(rawValue: 1 << 0)
 
-          public  static let standard: Self =
-            Self(rawValue: 1 << Options.standard.rawValue)
+          public  static let standard: Self = Self(rawValue: 1 << 1)
         }
         """,
       macros: macros,
@@ -178,7 +172,7 @@ final class OptionSetMacroTests: XCTestCase {
       """
       @OptionSet
       struct ShippingOptions {
-        private enum Options: Int {
+        private enum Options {
           case nextDay
         }
       }

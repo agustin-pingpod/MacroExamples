@@ -190,10 +190,9 @@ extension OptionSetMacro: MemberMacro {
     // Dig out the access control keyword we need.
       let access: DeclSyntax = decl.modifiers.first(where: \.isNeededAccessLevelModifier).map { "\($0)" } ?? ""
 
-      let staticVars = caseElements.map { (element) -> DeclSyntax in
+      let staticVars = caseElements.enumerated().map { (i, element) -> DeclSyntax in
         """
-        \(access) static let \(element.name): Self =
-          Self(rawValue: 1 << \(optionsEnum.name).\(element.name).rawValue)
+        \(access)static let \(element.name): Self = Self(rawValue: 1 << \(raw: i))
         """
       }
 
