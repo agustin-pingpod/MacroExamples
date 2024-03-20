@@ -11,7 +11,7 @@ let package = Package(
   products: [
     .library(
         name: "MacroExamples",
-        targets: ["MacroExamplesInterface"]
+        targets: ["MacroExamples"]
     ),
   ],
   dependencies: [
@@ -38,7 +38,7 @@ let package = Package(
       path: "Tests/MacroExamples/Implementation"
     ),
     .target(
-      name: "MacroExamplesInterface",
+      name: "MacroExamples",
       dependencies: [
         "MacroExamplesImplementation"
       ],
@@ -47,7 +47,7 @@ let package = Package(
     .executableTarget(
       name: "MacroExamplesPlayground",
       dependencies: [
-        "MacroExamplesInterface"
+        "MacroExamples"
       ],
       path: "Sources/MacroExamples/Playground"
     ),

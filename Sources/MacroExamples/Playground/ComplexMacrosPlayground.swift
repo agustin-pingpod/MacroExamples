@@ -10,13 +10,13 @@
 //
 //===----------------------------------------------------------------------===//
 
-import MacroExamplesInterface
+import MacroExamples
 
 // MARK: - Option Set
 
 @OptionSet<UInt8>
 struct ShippingOptions {
-  private enum Options: Int {
+  private enum Options {
     case nextDay
     case secondDay
     case priority

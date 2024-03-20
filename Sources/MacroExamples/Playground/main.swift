@@ -11,7 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 import Foundation
-import MacroExamplesInterface
+import MacroExamples
 
 // MARK: - Complex Macros
 
